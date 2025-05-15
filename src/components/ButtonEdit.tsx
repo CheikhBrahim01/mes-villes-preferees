@@ -1,12 +1,12 @@
 import React from "react";
 
 interface Props {
-  Onclick: () => void;
+  onclick: () => void;
 }
 
-function ButtonEdit({ Onclick }: Props) {
+function ButtonEdit({ onclick }: Props) {
   return (
-    <button className="btn btn-outline-primary btn-sm me-2" onClick={Onclick}>
+    <button className="btn btn-outline-primary btn-sm me-2" onClick={onclick}>
       Edit
     </button>
   );

@@ -1,13 +1,10 @@
-import Bienvenue from "./components/Bienvenue";
-import Cities from "./components/Cites";
-import List from "./components/List";
+import CityList from "./components/CityList";
+import List from "./components/CityList";
 
-
-function App () {
- 
+function App() {
   return (
     <>
-     <List/>
+      <CityList/>
     </>
   );
 }

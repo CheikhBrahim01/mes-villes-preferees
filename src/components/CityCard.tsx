@@ -1,26 +1,28 @@
 import React, { useState } from "react";
-import Reating from "./Reating";
-import ButtonDelate from "./ButtonDelate";
+import Reating from "./Rating";
+import ButtonDelate from "./ButtonDelete";
 import ButtonEdit from "./ButtonEdit";
 
 interface Props {
   title: string;
   description: string;
   image: string;
+  typeVille: string;
   rating: number;
   onChangeRating: (newRating: number) => void;
   onDelate: () => void;
-  OnEdit: () => void;
+  onEdit: () => void;
   isEditing: boolean;
 }
 
 function CityCard({
   title,
   description,
+  typeVille,
   image,
   rating,
   onDelate,
-  OnEdit,
+  onEdit,
   onChangeRating,
   isEditing,
 }: Props) {
@@ -45,12 +47,13 @@ function CityCard({
       <div className="card-body">
         <h5 className="card-title">{title}</h5>
         <p className="card-text">{description}</p>
+        <p className="card-text">{typeVille}</p>
         <div className="d-flex justify-content-between align-items-center">
-          <Reating rating={rating} Onchange={onChangeRating} />
+          <Reating rating={rating} onChange={onChangeRating} />
           {mouse && (
             <div>
-              {!isEditing && <ButtonDelate Onclick={onDelate} />}
-              <ButtonEdit Onclick={OnEdit} />
+              {!isEditing && <ButtonDelate onclick={onDelate} />}
+              <ButtonEdit onclick={onEdit} />
             </div>
           )}
         </div>
