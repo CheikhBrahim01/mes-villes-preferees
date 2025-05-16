@@ -62,7 +62,7 @@ function CityFilter({
       </div>
 
       <div className="row">
-        {filteredCities.map((city, index) => (
+        {cities.length===0?'List Vide':filteredCities.map((city, index) => (
           <div className="col-12 col-md-6 mb-4" key={index}>
             <CityCard
               title={city.title}

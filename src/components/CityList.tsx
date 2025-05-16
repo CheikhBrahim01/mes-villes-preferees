@@ -13,6 +13,7 @@ function CityList() {
   const [indexImage, setIndexImage] = useState(-1);
   const [query, setQuery] = useState("");
   const [filterType, setFilterType] = useState("");
+  const [isOpened, setIsOpened] = useState(true);
   const [cities, setCities] = useState<
     {
       title: string;
@@ -44,7 +45,10 @@ function CityList() {
         <div className="col-md-5 mb-4">
           <div className="position-sticky" style={{ top: "20px" }}>
             <div className="card shadow-sm">
-              <div className="card-header bg-primary text-white">
+              <div
+                className="card-header bg-primary text-white"
+                onClick={() => setIsOpened(!isOpened)}
+              >
                 <h5 className="mb-0">
                   {editingIndex !== null
                     ? "Modifier une ville"
@@ -52,12 +56,14 @@ function CityList() {
                 </h5>
               </div>
               <div className="card-body">
-                <CityForm
-                  cities={cities}
-                  setCities={setCities}
-                  editingIndex={editingIndex}
-                  setEditingIndex={setEditingIndex}
-                />
+                {isOpened && (
+                  <CityForm
+                    cities={cities}
+                    setCities={setCities}
+                    editingIndex={editingIndex}
+                    setEditingIndex={setEditingIndex}
+                  />
+                )}
               </div>
             </div>
           </div>
